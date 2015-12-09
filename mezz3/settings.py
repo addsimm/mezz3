@@ -145,7 +145,9 @@ DATABASES = {
         # Add "postgresql_psycopg2", "mysql", "sqlite3" or "oracle".
         "ENGINE": "django.db.backends.",
         # DB name or path to database file if using sqlite3.
-        "NAME": "",
+        "NAME": "/Users/adamsimon/Google Drive/dev.db",
+
+
         # Not used with sqlite3.
         "USER": "",
         # Not used with sqlite3.
