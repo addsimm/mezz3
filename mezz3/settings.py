@@ -127,6 +127,8 @@ SITE_ID = 1
 # to load the internationalization machinery.
 USE_I18N = False
 
+SECRET_KEY = "1km5idhc1!oixj=mw^#gsm$)gf=t+i4bjnv!e84+$9fx$_4*d#"
+
 AUTHENTICATION_BACKENDS = ("mezzanine.core.auth_backends.MezzanineBackend",)
 
 # The numeric mode to set newly-uploaded files to. The value should be
