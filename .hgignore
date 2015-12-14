@@ -1,9 +1,0 @@
-syntax: glob
-*.pyc
-*.pyo
-.DS_Store
-.coverage
-local_settings.py
-
-syntax: regexp
-
