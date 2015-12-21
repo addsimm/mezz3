@@ -217,6 +217,7 @@ INSTALLED_APPS = (
     "django.contrib.sitemaps",
     "django.contrib.staticfiles",
     "mezzanine.boot",
+        "tutorapp",
     "mezzanine.conf",
     "mezzanine.core",
     "mezzanine.generic",
@@ -225,7 +226,7 @@ INSTALLED_APPS = (
     "mezzanine.forms",
     "mezzanine.galleries",
     "mezzanine.twitter",
-    "tutorapp",
+
     # "mezzanine.accounts",
     # "mezzanine.mobile",
 )
