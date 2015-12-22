@@ -46,6 +46,12 @@ from django.utils.translation import ugettext_lazy as _
 #     (3, _("Footer"), "pages/menus/footer.html"),
 # )
 
+PAGE_MENU_TEMPLATES = (
+    (1, "Top navigation bar", "pages/menus/dropdown.html"),
+    (2, "Footer", "pages/menus/flat_footer.html"),
+)
+
+
 # A sequence of fields that will be injected into Mezzanine's (or any
 # library's) models. Each item in the sequence is a four item sequence.
 # The first two items are the dotted path to the model and its field
@@ -143,9 +149,9 @@ FILE_UPLOAD_PERMISSIONS = 0o644
 DATABASES = {
     "default": {
         # Add "postgresql_psycopg2", "mysql", "sqlite3" or "oracle".
-        "ENGINE": "django.db.backends.",
+        "ENGINE": "django.db.backends.sqlite3",
         # DB name or path to database file if using sqlite3.
-        "NAME": "/Users/adamsimon/Google Drive/dev.db",
+        "NAME": "/Users/adamsimon/PycharmProjects/mezz3/dev.db",
 
 
         # Not used with sqlite3.
@@ -229,6 +235,7 @@ INSTALLED_APPS = (
 
     # "mezzanine.accounts",
     # "mezzanine.mobile",
+        "mezz3",
 )
 
 # List of processors used by RequestContext to populate the context.
