@@ -1,0 +1,120 @@
+{% extends "base.html" %}
+
+{% load i18n mezzanine_tags  pages_tags staticfiles %}
+
+{% block meta_title %}{% trans "Home" %}{% endblock %}
+
+{% block all_content %}
+
+<body style="padding-top: 8%" id="{% block body_id %}body{% endblock %}">
+
+<div class="navbar navbar-default navbar-fixed-top" style="height: 8%; padding: 1%" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">{% trans "Toggle Navigation" %}</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+            <a href="/">
+                <img class="img-responsive" style="height: 60px; margin-right: 20%;"
+                     src="{% static 'img/JOSLogo121615.png' %}" alt="JOS Logo">
+            </a>
+
+            <!--
+                {% if settings.SITE_TITLE %}<a class="" href="/">xxx{{ settings.SITE_TITLE }}</a>{% endif %}
+                {% if settings.SITE_TAGLINE %}<p class="navbar-text visible-lg">{{ settings.SITE_TAGLINE }}
+                </p>{% endif %}
+            -->
+        </div>
+
+        <div class="navbar-collapse collapse" style="font-size: 16pt; padding: 1%;">
+            {% page_menu "pages/menus/dropdown.html" %}
+        </div>
+    </div>
+</div>
+
+<div class="container">
+
+    {% nevercache %}
+        {% if messages %}
+            <div class="messages">
+                {% for message in messages %}
+                    <div class="alert alert-dismissable alert-{{ message.tags }}" data-alert="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    {% endnevercache %}
+
+    <!-- <h1>xxx{% block title %}{% endblock %}</h1> -->
+
+    <ul class="breadcrumb">
+        {% block breadcrumb_menu %}
+            <li class="active">{% trans "Home" %}</li>
+        {% endblock %}
+    </ul>
+
+</div>
+
+<div class="container">
+    <div class="row">
+
+        <div class="col-md-2 left">
+            <h1 class="text-left" style="color:red;">Left</h1>
+            {% block left_panel %}
+                <div class="panel panel-default tree">{% page_menu "pages/menus/tree.html" %}</div>
+            {% endblock %}
+        </div>
+
+        <div class="col-md-7 middle">
+            <h1 class="text-center" style="color:red;">Main</h1>
+            {% blocktrans %}
+                <h2>Congratulations!</h2>
+                <p>
+                    Welcome to your new Mezzanine powered website.
+                    Here are some quick links to get you started:
+                </p>
+                <ul>
+                    <li><a href="/admin/">Log in to the admin interface</a></li>
+                    <li><a href="http://mezzanine.jupo.org/docs/content-architecture.html">Creating custom page
+                        types</a></li>
+                    <li><a href="http://mezzanine.jupo.org/docs/frequently-asked-questions.html#templates">Modifying
+                        HTML
+                        templates</a></li>
+                    <li>
+                        <a href="http://mezzanine.jupo.org/docs/frequently-asked-questions.html#why-isn-t-the-homepage-a-page-object-i-can-edit-via-the-admin">Changing
+                            this homepage</a></li>
+                    <li><a href="http://mezzanine.jupo.org/docs/frequently-asked-questions.html">Other frequently asked
+                        questions</a></li>
+                    <li><a href="http://mezzanine.jupo.org/docs/configuration.html#default-settings">Full list of
+                        settings</a>
+                    </li>
+                    <li><a href="http://mezzanine.jupo.org/docs/deployment.html">Deploying to a production server</a>
+                    </li>
+                </ul>
+            {% endblocktrans %}
+        </div>
+
+        <div class="col-md-3 right">
+            <h1 class="text-right" style="color:red;">Right</h1>
+            {% nevercache %} {% include "includes/language_selector.html" %}
+                {% include "includes/user_panel.html" %} {% endnevercache %}
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    {% block right_panel %} {% ifinstalled mezzanine.twitter %} {% include "twitter/tweets.html" %}
+                    {% endifinstalled %} {% endblock %}
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+</body>
+
+{% endblock %}
