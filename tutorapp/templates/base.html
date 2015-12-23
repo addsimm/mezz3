@@ -52,7 +52,39 @@
     {% block extra_head %}{% endblock %}
 </head>
 
+<body style="padding-top: 8%" id="{% block body_id %}body{% endblock %}">
+
+<div class="navbar navbar-default navbar-fixed-top" style="height: 8%; padding: 1%" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">{% trans "Toggle Navigation" %}</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+            <a href="/">
+                <img class="img-responsive" style="height: 60px; margin-right: 20%;"
+                     src="{% static 'img/JOSLogo121615.png' %}" alt="JOS Logo">
+            </a>
+
+            <!--
+            {% if settings.SITE_TITLE %}<a class="" href="/">xxx{{ settings.SITE_TITLE }}</a>{% endif %}
+            {% if settings.SITE_TAGLINE %}<p class="navbar-text visible-lg">{{ settings.SITE_TAGLINE }}
+            </p>{% endif %}
+            -->
+        </div>
+
+        <div class="navbar-collapse collapse" style="font-size: 16pt; padding: 1%;">
+            {% page_menu "pages/menus/dropdown.html" %}
+        </div>
+    </div>
+</div>
+
 {% block all_content %}{% endblock %}
+
+</body>
 
 <footer>
     <div class="container">

@@ -1,11 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="DataSourceManagerImpl" format="xml" hash="1171947070">
-    <data-source source="LOCAL" name="SQLite -" uuid="81311d65-c4c8-4702-a87c-3fadbde1c62c">
+  <component name="DataSourceManagerImpl" format="xml" hash="796027034">
+    <data-source source="LOCAL" name="Django default" uuid="b6cb2100-5be4-4bd0-8308-4f5feb7a3a2d">
       <driver-ref>sqlite.xerial</driver-ref>
       <synchronize>true</synchronize>
+      <imported>true</imported>
+      <remarks>$PROJECT_DIR$/mezz3/settings.py</remarks>
       <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
       <jdbc-url>jdbc:sqlite:$PROJECT_DIR$/dev.db</jdbc-url>
+      <explain-plan-config>
+        <provider>com.intellij.database.plan.ExplainPlanProvider.NullExplainPlanProvider</provider>
+      </explain-plan-config>
     </data-source>
   </component>
 </project>

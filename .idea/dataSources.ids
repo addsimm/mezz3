@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <component name="dataSourceStorage">
-  <data-source name="SQLite -" uuid="81311d65-c4c8-4702-a87c-3fadbde1c62c">
+  <data-source name="Django default" uuid="b6cb2100-5be4-4bd0-8308-4f5feb7a3a2d">
     <database-info product="SQLite" version="3.8.9" jdbc-version="2.1" driver-name="SQLiteJDBC" driver-version="native"/>
     <case-sensitivity plain-identifiers="mixed" quoted-identifiers="mixed"/>
     <schema name="" catalog=""/>
@@ -385,6 +385,46 @@
     <table name="sqlite_sequence" schema="" catalog="" type="TABLE">
       <column name="name" sqlType="" precision="0" scale="-1" nullable="true" jdbcType="12"/>
       <column name="seq" sqlType="" precision="0" scale="-1" nullable="true" jdbcType="12"/>
+    </table>
+    <table name="tutorapp_homepage" schema="" catalog="" type="TABLE">
+      <column name="page_ptr_id" sqlType="INTEGER" precision="0" scale="-1" nullable="false" jdbcType="4"/>
+      <column name="content" sqlType="TEXT" precision="0" scale="-1" nullable="false" jdbcType="12"/>
+      <column name="heading" sqlType="VARCHAR(200)" precision="0" scale="-1" nullable="false" jdbcType="12"/>
+      <column name="subheading" sqlType="VARCHAR(200)" precision="0" scale="-1" nullable="false" jdbcType="12"/>
+      <column name="featured_works_heading" sqlType="VARCHAR(200)" precision="0" scale="-1" nullable="false" jdbcType="12"/>
+      <column name="content_heading" sqlType="VARCHAR(200)" precision="0" scale="-1" nullable="false" jdbcType="12"/>
+      <column name="latest_posts_heading" sqlType="VARCHAR(200)" precision="0" scale="-1" nullable="false" jdbcType="12"/>
+      <column name="featured_portfolio_id" sqlType="INTEGER" precision="0" scale="-1" nullable="true" jdbcType="4"/>
+      <primary-key columns="page_ptr_id"/>
+      <foreign-key name="#FAKE_tutorapp_homepage_1" columns="featured_portfolio_id" ref-table="tutorapp_portfolio" ref-schema="" ref-catalog="" ref-columns="page_ptr_id" update-rule="3" delete-rule="3" deferrability="1"/>
+      <foreign-key name="#FAKE_tutorapp_homepage_2" columns="page_ptr_id" ref-table="pages_page" ref-schema="" ref-catalog="" ref-columns="id" update-rule="3" delete-rule="3" deferrability="1"/>
+      <index name="tutorapp_homepage_06e1a339" unique="true" columns="featured_portfolio_id"/>
+    </table>
+    <table name="tutorapp_iconblurb" schema="" catalog="" type="TABLE">
+      <column name="id" sqlType="INTEGER" precision="0" scale="-1" nullable="false" jdbcType="4"/>
+      <column name="_order" sqlType="INTEGER" precision="0" scale="-1" nullable="true" jdbcType="4"/>
+      <column name="icon" sqlType="VARCHAR(255)" precision="0" scale="-1" nullable="false" jdbcType="12"/>
+      <column name="title" sqlType="VARCHAR(200)" precision="0" scale="-1" nullable="false" jdbcType="12"/>
+      <column name="content" sqlType="TEXT" precision="0" scale="-1" nullable="false" jdbcType="12"/>
+      <column name="link" sqlType="VARCHAR(2000)" precision="0" scale="-1" nullable="false" jdbcType="12"/>
+      <column name="homepage_id" sqlType="INTEGER" precision="0" scale="-1" nullable="false" jdbcType="4"/>
+      <primary-key columns="id"/>
+      <foreign-key name="#FAKE_tutorapp_iconblurb_1" columns="homepage_id" ref-table="tutorapp_homepage" ref-schema="" ref-catalog="" ref-columns="page_ptr_id" update-rule="3" delete-rule="3" deferrability="1"/>
+      <index name="tutorapp_iconblurb_a6c7fe0b" unique="true" columns="homepage_id"/>
+    </table>
+    <table name="tutorapp_portfolio" schema="" catalog="" type="TABLE">
+      <column name="page_ptr_id" sqlType="INTEGER" precision="0" scale="-1" nullable="false" jdbcType="4"/>
+      <primary-key columns="page_ptr_id"/>
+      <foreign-key name="#FAKE_tutorapp_portfolio_1" columns="page_ptr_id" ref-table="pages_page" ref-schema="" ref-catalog="" ref-columns="id" update-rule="3" delete-rule="3" deferrability="1"/>
+    </table>
+    <table name="tutorapp_slide" schema="" catalog="" type="TABLE">
+      <column name="id" sqlType="INTEGER" precision="0" scale="-1" nullable="false" jdbcType="4"/>
+      <column name="_order" sqlType="INTEGER" precision="0" scale="-1" nullable="true" jdbcType="4"/>
+      <column name="image" sqlType="VARCHAR(255)" precision="0" scale="-1" nullable="true" jdbcType="12"/>
+      <column name="homepage_id" sqlType="INTEGER" precision="0" scale="-1" nullable="false" jdbcType="4"/>
+      <primary-key columns="id"/>
+      <foreign-key name="#FAKE_tutorapp_slide_1" columns="homepage_id" ref-table="tutorapp_homepage" ref-schema="" ref-catalog="" ref-columns="page_ptr_id" update-rule="3" delete-rule="3" deferrability="1"/>
+      <index name="tutorapp_slide_a6c7fe0b" unique="true" columns="homepage_id"/>
     </table>
     <table name="twitter_query" schema="" catalog="" type="TABLE">
       <column name="id" sqlType="INTEGER" precision="0" scale="-1" nullable="false" jdbcType="4"/>

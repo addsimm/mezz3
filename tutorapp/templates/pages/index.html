@@ -1,40 +1,10 @@
-{% extends "base.html" %}
+{% extends "pages/page.html" %}
 
 {% load i18n mezzanine_tags  pages_tags staticfiles %}
 
 {% block meta_title %}{% trans "Home" %}{% endblock %}
 
 {% block all_content %}
-
-<body style="padding-top: 8%" id="{% block body_id %}body{% endblock %}">
-
-<div class="navbar navbar-default navbar-fixed-top" style="height: 8%; padding: 1%" role="navigation">
-    <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="sr-only">{% trans "Toggle Navigation" %}</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-
-            <a href="/">
-                <img class="img-responsive" style="height: 60px; margin-right: 20%;"
-                     src="{% static 'img/JOSLogo121615.png' %}" alt="JOS Logo">
-            </a>
-
-            <!--
-                {% if settings.SITE_TITLE %}<a class="" href="/">xxx{{ settings.SITE_TITLE }}</a>{% endif %}
-                {% if settings.SITE_TAGLINE %}<p class="navbar-text visible-lg">{{ settings.SITE_TAGLINE }}
-                </p>{% endif %}
-            -->
-        </div>
-
-        <div class="navbar-collapse collapse" style="font-size: 16pt; padding: 1%;">
-            {% page_menu "pages/menus/dropdown.html" %}
-        </div>
-    </div>
-</div>
 
 <div class="container">
 
@@ -65,14 +35,14 @@
     <div class="row">
 
         <div class="col-md-2 left">
-            <h1 class="text-left" style="color:red;">Left</h1>
+            <h1 class="text-left" style="background-color: green; color:red;">Left</h1>
             {% block left_panel %}
                 <div class="panel panel-default tree">{% page_menu "pages/menus/tree.html" %}</div>
             {% endblock %}
         </div>
 
         <div class="col-md-7 middle">
-            <h1 class="text-center" style="color:red;">Main</h1>
+            <h1 class="text-center" style="background-color: grey; color:red;">Main</h1>
             {% blocktrans %}
                 <h2>Congratulations!</h2>
                 <p>
@@ -100,8 +70,8 @@
             {% endblocktrans %}
         </div>
 
-        <div class="col-md-3 right">
-            <h1 class="text-right" style="color:red;">Right</h1>
+        <div class="col-md-3 right" style="background-color: pink;">
+            <h1 class="text-right" style="background-color: red; color: white;">Right</h1>
             {% nevercache %} {% include "includes/language_selector.html" %}
                 {% include "includes/user_panel.html" %} {% endnevercache %}
             <div class="panel panel-default">
@@ -114,7 +84,5 @@
 
     </div>
 </div>
-
-</body>
 
 {% endblock %}
